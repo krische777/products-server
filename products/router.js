@@ -29,4 +29,8 @@ router.post('/product', (req, res, next)=>{
     else { res.status(400).end()}
 })
 
+router.get('/product/:productId/items', (req, res, next)=>{
+    Items.findAll
+})
+
 module.exports=router

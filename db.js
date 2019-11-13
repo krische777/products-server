@@ -7,11 +7,12 @@ const db = new Sequelize(databaseUrl)
 db.sync({force: true})
     .then(()=> {
         const Product=require('./products/model')
+        const Item=require('./items/model')
         console.log('database was synced')
         Product.create({
             productType: 'TVs',
             description:"All kinds of smart TVs and TVs",
-            picture: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQllaCxQW6k0LlpGTzAQ2h_vvkgXEHTFMAHjdFfv6mazWcoFOYWJ3xMc36yQS5JmAOwOtsyh3g_pvCF1GshrU1rGQgfCywsBA&usqp=CAY',
+            picture: 'https://images-na.ssl-images-amazon.com/images/I/911NRkSMp3L._SL1500_.jpg',
         });
         Product.create({
             productType: 'Phones',
@@ -42,6 +43,25 @@ db.sync({force: true})
             productType: 'Shoes ',
             description:"All kinds of shoes",
             picture: 'https://i.redd.it/ra5y28vqvv701.jpg',
+        });
+        Product.create({
+            productType: 'Furniture ',
+            description:"All kinds of furniture",
+            picture: 'https://i5.walmartimages.com/dfw/4ff9c6c9-e3ce/k2-_8a66db1a-b48a-4152-b36b-1cfe5a3385cd.v1.jpg',
+        });
+        Item.create({
+            author: 'krisi',
+            picture: 'https://image-cdn.beforward.jp/autoparts/original/201812/4525419/i-img899x1200-15451842069oglje877149.jpg',
+            price:150,
+            description:'An iphone SE in a good condition, 1 year old, with 2 years guarantee',
+            productId:2
+        });
+        Item.create({
+            author: 'didi',
+            picture: 'https://wi-images.condecdn.net/image/NYVwZRbJJYw/crop/1620/f/samsungs9.jpg',
+            price:290,
+            description:'A Samsung S9 in a good condition, 1 year old, with 2 years guarantee',
+            productId:2
         });
     })
     .catch(console.error)

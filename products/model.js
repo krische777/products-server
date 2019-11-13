@@ -1,5 +1,6 @@
 const Sequelize=require('sequelize')
 const sequelize=require('../db')
+const Item =require('../items/model')
 
 const Product=sequelize.define('product', {
     productType: {
@@ -17,5 +18,7 @@ const Product=sequelize.define('product', {
 
 })
 
+Item.belongsTo(Product)
+Product.hasMany(Item)
 
 module.exports=Product
