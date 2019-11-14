@@ -8,6 +8,7 @@ router.get('/product/:productId/items', (req, res, next) => {
     Item
         .findAll({where: {productId: req.params.productId,}})
         .then(items => {
+            console.log('items========================================================================', items)
             res.send(items)
         })
         .catch(next)
